@@ -50,13 +50,11 @@ export default getUserMedia({ video: false, audio: true }).then(stream => {
     // const tone = pitchFinder.findTone(); // try find one tone
     const detectPitch = new Pitchfinder.AMDF({
       maxFrequency: 800,
-      minFrequency: 50,
-      ratio: 10
+      minFrequency: 50
     });
     const pitch = detectPitch(MicrophoneStream.toRaw(chunk));
     if (pitch) {
-      console.log(pitch);
-      const freq = pitch + 7;
+      const freq = pitch * 1.09;
       const note = getNote(freq);
       const cents = getCents(freq, note);
       const noteName = noteStrings[note % 12];
