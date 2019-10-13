@@ -18,7 +18,7 @@ class Tuner extends Component {
     const note = this.props.currentNote;
     return (
       <Container>
-        <ResultContainer>
+        <ResultContainer tuned={-5 <= note.cents && note.cents <= 5}>
           <NoteName>
             {note.noteName}
             <Octave>{note.octave}</Octave>

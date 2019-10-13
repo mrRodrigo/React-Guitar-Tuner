@@ -38,16 +38,10 @@ const getCents = (frequency, note) => {
 };
 export default getUserMedia({ video: false, audio: true }).then(stream => {
   const micStream = new MicrophoneStream(stream, {
-    bufferSize: 2048 * 2
+    bufferSize: 4096
   });
 
   micStream.on("data", chunk => {
-    // console.log(MicrophoneStream.toRaw(chunk));
-
-    // const pitchFinder = new PitchAnalyzer(); // all pitch analysis functionality stems from this object
-    // pitchFinder.input(MicrophoneStream.toRaw(chunk)); // send raw data audio to pitchFinder
-    // pitchFinder.process(); // it takes a split-second to turn it into actionable data
-    // const tone = pitchFinder.findTone(); // try find one tone
     const detectPitch = new Pitchfinder.AMDF({
       maxFrequency: 800,
       minFrequency: 50
@@ -61,7 +55,6 @@ export default getUserMedia({ video: false, audio: true }).then(stream => {
       const octave = parseInt(note / 12) - 1;
 
       Store.dispatch(changeCurrentNote({ freq, cents, noteName, octave }));
-      //console.log("Note: ", note.note.toString(), freq);
     }
   });
 });

@@ -11,11 +11,15 @@ html, body, #root {
     height: 100%;
 }
 body{
-    @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,900&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap');
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased !important;
-    background-color: #fafafa;
-    font-family: "Roboto", sans-serif;
+  
+    font-family: "Poppins", sans-serif;
+}
+
+span{
+  font-family: "Poppins", sans-serif;
 }
 `;
 
@@ -23,5 +27,7 @@ export const MainContainer = styled.main`
   display: flex;
   justify-content: center;
   align-content: center;
+  background-color: #95a5a6;
   width: 100%;
+  height: 100vh;
 `;

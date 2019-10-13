@@ -16,8 +16,9 @@ export default class RangeBar extends Component {
       <Container>
         <SemiCircleProgressBar
           percentage={value}
-          background={"#660000"}
+          background={"#D85050"}
           orientation={"down"}
+          diameter={250}
         />
       </Container>
     );
